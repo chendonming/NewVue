@@ -1,9 +1,26 @@
 <template>
-  <div>Home</div>
+  <div>
+    <el-button @click="visible = true">点击</el-button>
+    <popup :visible.sync="visible" :draggable="true" :elprops="elprops">
+      弹窗
+    </popup>
+  </div>
 </template>
 
 <script>
-export default {};
+import popup from '@/components/base/popup';
+
+export default {
+  components: { popup },
+  data() {
+    return {
+      visible: false,
+      elprops: {
+        title: '标题提提',
+      },
+    };
+  },
+};
 </script>
 
 <style>

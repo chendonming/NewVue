@@ -4,11 +4,11 @@ module.exports = {
   ],
   plugins: [
     [
-      "component",
+      'component',
       {
-        "libraryName": "element-ui",
-        "styleLibraryName": "theme-chalk"
-      }
-    ]
-  ]
+        libraryName: 'element-ui',
+        styleLibraryName: 'theme-chalk',
+      },
+    ],
+  ],
 };
