@@ -1,10 +1,15 @@
 <template>
-  <div>Home</div>
+  <div>
+    基础popup弹窗
+  </div>
 </template>
 
 <script>
-export default {};
+export default {
+
+};
 </script>
 
 <style>
+
 </style>
