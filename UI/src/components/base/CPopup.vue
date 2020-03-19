@@ -3,32 +3,33 @@
     <el-dialog
       ref="dialog"
       :append-to-body="true"
-      v-bind="elprops"
+      v-bind="$attrs"
       top="0"
       :visible.sync="show"
       :before-close="handleClose"
       width="30%"
-      v-moveAnyWhere="'asas'"
     >
       <slot></slot>
       <span slot="footer" class="dialog-footer">
-        <el-button @click="closeModal">取 消</el-button>
-        <el-button type="primary" @click="closeModal">确 定</el-button>
+        <el-button @click="closeModal">{{$t('cancel')}}</el-button>
+        <el-button type="primary" @click="submit">{{$t('submit')}}</el-button>
       </span>
     </el-dialog>
   </div>
 </template>
 
 <script>
+/**
+ * Basic popup assembly
+ */
 export default {
-  name: 'popup',
+  name: 'cpopup',
+  inheritAttrs: false,
   props: {
-    // 是否可见
+    // Is visible
     visible: Boolean,
-    // 是否可以拖动
+    // Whether it can be dragged
     draggable: Boolean,
-    // el-dialog自身的props
-    elprops: Object,
   },
   data() {
     return {
@@ -41,8 +42,10 @@ export default {
       endY: 0,
       allowDrag: true,
       instance: null,
-
-      maxGap: 20, // 最大空隙 即弹窗上下都要有至少maxGap的空隙
+      // The maximum gap is that
+      // there must be a gap of at least maxGap above
+      // and below the popup window.
+      maxGap: 20,
     };
   },
   mounted() {
@@ -66,7 +69,7 @@ export default {
       this.show = val;
       if (val) {
         this.$nextTick(() => {
-          // 居中显示
+          // Center display
           const dom = this.instance || this.getInstance();
           this.instance = dom;
           const height = dom.offsetHeight;
@@ -104,13 +107,14 @@ export default {
     }
   },
   methods: {
+    submit() {
+      this.$emit('submit');
+    },
+
     getInstance() {
       return this.$refs.dialog.$el.querySelector('.el-dialog');
     },
 
-    /**
-     * 处理实例的位置
-     */
     handleInstancePosition(top, left) {
       const dom = this.instance;
       dom.style.top = `${top}px`;
@@ -121,9 +125,6 @@ export default {
       done();
     },
 
-    /**
-     * 处理鼠标按下事件
-     */
     handleMousedown(e) {
       if (this.allowDrag && e.target.closest('.el-dialog__header')) {
         this.allowDrag = false;
@@ -132,9 +133,6 @@ export default {
       }
     },
 
-    /**
-     * 处理鼠标移动
-     */
     handleMousemove(e) {
       if (!this.allowDrag) {
         const x = e.pageX;
@@ -146,9 +144,6 @@ export default {
       }
     },
 
-    /**
-     * 处理鼠标弹起事件
-     */
     handleMouseup() {
       if (this.instance && !this.allowDrag) {
         this.allowDrag = true;

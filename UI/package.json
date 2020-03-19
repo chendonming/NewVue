@@ -1,6 +1,11 @@
 {
   "name": "newvue",
   "version": "0.1.0",
+  "author": {
+    "email": "2283973011@qq.com",
+    "name": "chendm",
+    "url": "https://github.com/chendonming"
+  },
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -12,6 +17,7 @@
     "core-js": "^3.6.4",
     "element-ui": "^2.13.0",
     "vue": "^2.6.11",
+    "vue-i18n": "^8.15.5",
     "vue-router": "^3.1.5"
   },
   "devDependencies": {
