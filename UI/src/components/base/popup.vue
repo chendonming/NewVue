@@ -40,16 +40,20 @@ export default {
       endY: 0,
       allowDrag: true,
       instance: null,
+
+      maxGap: 20, // 最大空隙 即弹窗上下都要有至少maxGap的空隙
     };
   },
   mounted() {
-    if (this.draggable) {
-      const dom = this.getInstance();
+    const dom = this.getInstance();
 
-      dom.style.position = 'absolute';
-      dom.style.margin = '0';
-      dom.style.padding = '0';
+    dom.style.position = 'absolute';
+    dom.style.margin = '0';
+    dom.style.padding = '0';
+
+    if (this.draggable) {
       dom.querySelector('.el-dialog__header').style.cursor = 'move';
+      dom.querySelector('.el-dialog__header').style.userSelect = 'none';
 
       document.addEventListener('mousedown', this.handleMousedown);
       document.addEventListener('mousemove', this.handleMousemove);
@@ -62,7 +66,7 @@ export default {
       if (val) {
         this.$nextTick(() => {
           // 居中显示
-          const dom = this.getInstance();
+          const dom = this.instance || this.getInstance();
           this.instance = dom;
           const height = dom.offsetHeight;
           const width = dom.offsetWidth;
@@ -74,6 +78,14 @@ export default {
           this.initX = (parentWidth - width) / 2;
           this.initY = (parentHeight - height) / 2;
 
+          if (this.initY < this.maxGap) {
+            this.initY = this.maxGap;
+            const headerHeight = dom.querySelector('.el-dialog__header').offsetHeight;
+            const footerHeight = dom.querySelector('.el-dialog__footer').offsetHeight;
+            document.querySelector('.el-dialog__body').style.height = `${parentHeight - headerHeight - footerHeight - 2 * this.maxGap - 60}px`;
+            document.querySelector('.el-dialog__body').style.overflow = 'auto';
+          }
+
           dom.style.top = `${this.initY}px`;
           dom.style.left = `${this.initX}px`;
         });
@@ -84,9 +96,11 @@ export default {
     },
   },
   beforeDestroy() {
-    document.removeEventListener('mousedown', this.handleMousedown);
-    document.removeEventListener('mousemove', this.handleMousemove);
-    document.removeEventListener('mouseup', this.handleMouseup);
+    if (this.draggable) {
+      document.removeEventListener('mousedown', this.handleMousedown);
+      document.removeEventListener('mousemove', this.handleMousemove);
+      document.removeEventListener('mouseup', this.handleMouseup);
+    }
   },
   methods: {
     getInstance() {
