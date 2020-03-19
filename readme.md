@@ -14,10 +14,10 @@
 
 # PLan
 
-- [] A set of basic components
+- [ ] A set of basic components
 
-- [] CRUD generator
+- [ ] CRUD generator
 
-- [] Add multiple sets of theme colors to your project
+- [ ] Add multiple sets of theme colors to your project
 
 look forward! Star me
