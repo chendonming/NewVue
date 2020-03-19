@@ -1,5 +1,5 @@
 /**
- * 校验器
+ * Verifier
  */
 export default {
   mobile: (vue) => (rule, value, callback) => {

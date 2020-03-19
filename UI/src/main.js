@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import {
-  Dialog, Button, Form, FormItem, Select, Option, Input,
+  Dialog, Button, Form, FormItem, Select, Option, Input, Table,
 } from 'element-ui';
 import i18n from '@/i18n/i18n';
 import App from './App.vue';
@@ -13,6 +13,7 @@ Vue.component(FormItem.name, FormItem);
 Vue.component(Select.name, Select);
 Vue.component(Option.name, Option);
 Vue.component(Input.name, Input);
+Vue.component(Table.name, Table);
 
 Vue.config.productionTip = false;
 

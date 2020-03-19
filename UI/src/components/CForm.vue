@@ -1,9 +1,7 @@
 <template>
-  <div>
-    <el-form ref="form" v-bind="$attrs" :rules="defaultRules">
-      <slot></slot>
-    </el-form>
-  </div>
+  <el-form ref="form" v-bind="$attrs" :rules="defaultRules">
+    <slot></slot>
+  </el-form>
 </template>
 
 <script>

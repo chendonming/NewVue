@@ -8,7 +8,7 @@
       @submit="submit"
     >
       <c-form ref="form" :model="form" label-width="80px">
-        <el-form-item label="活动名称" prop="name" required mobile email>
+        <el-form-item label="活动名称" prop="name" required email mobile>
           <el-input v-model="form.name"></el-input>
         </el-form-item>
         <el-form-item label="活动区域" prop="region" required>
