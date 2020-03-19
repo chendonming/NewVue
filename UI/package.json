@@ -1,21 +1,27 @@
 {
   "name": "integration-element-ui",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": {
     "email": "2283973011@qq.com",
     "name": "chendm",
     "url": "https://github.com/chendonming"
   },
-  "private": true,
+  "files": [
+    "/dist"
+  ],
+  "main": "dist/iei.umd.min.js",
+  "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "build:umd": "vue-cli-service build --target lib --name iei  src/index.js"
   },
   "dependencies": {
     "babel-plugin-component": "^1.1.1",
     "core-js": "^3.6.4",
     "element-ui": "^2.13.0",
+    "integration-element-ui": "0.1.1",
     "vue": "^2.6.11",
     "vue-i18n": "^8.15.5",
     "vue-router": "^3.1.5"

@@ -1,7 +1,10 @@
 <template>
   <div>
     <el-button @click="visible = true">点击</el-button>
-    <popup
+    <c-table :data="data"
+      :columns="columns"
+      :Pagination="{layout:'prev, pager, next', total: 50}"/>
+    <c-popup
       :visible.sync="visible"
       title="标题说是说"
       :draggable="true"
@@ -18,17 +21,21 @@
           </el-select>
         </el-form-item>
       </c-form>
-    </popup>
+    </c-popup>
   </div>
 </template>
 
 <script>
-import popup from '@/components/base/CPopup';
-import CForm from '@/components/CForm';
+// import popup from '@/components/base/CPopup';
+// import CForm from '@/components/CForm';
+// import CTable from '@/components/CTable';
+
+import { CPopup, CForm, CTable } from 'integration-element-ui';
 
 
 export default {
-  components: { popup, CForm },
+  // components: { popup, CForm, CTable },
+  components: { CPopup, CForm, CTable },
   data() {
     return {
       visible: false,
@@ -36,6 +43,37 @@ export default {
         name: '',
         region: '',
       },
+      columns: [
+        {
+          label: '名称',
+          prop: 'name',
+        },
+        {
+          label: '日期',
+          prop: 'date',
+        },
+        {
+          label: '地址',
+          prop: 'address',
+        },
+      ],
+      data: [{
+        date: '2016-05-02',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1518 弄',
+      }, {
+        date: '2016-05-04',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1517 弄',
+      }, {
+        date: '2016-05-01',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1519 弄',
+      }, {
+        date: '2016-05-03',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1516 弄',
+      }],
     };
   },
 
