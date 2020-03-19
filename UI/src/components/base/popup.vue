@@ -124,7 +124,10 @@ export default {
       if (!this.allowDrag) {
         const x = e.pageX;
         const y = e.pageY;
-        this.handleInstancePosition(this.initY + y - this.startY, this.initX + x - this.startX);
+        this.handleInstancePosition(
+          this.initY + y - this.startY,
+          this.initX + x - this.startX,
+        );
       }
     },
 
