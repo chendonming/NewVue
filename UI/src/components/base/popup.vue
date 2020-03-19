@@ -8,6 +8,7 @@
       :visible.sync="show"
       :before-close="handleClose"
       width="30%"
+      v-moveAnyWhere="'asas'"
     >
       <slot></slot>
       <span slot="footer" class="dialog-footer">
