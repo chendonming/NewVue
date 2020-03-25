@@ -1,5 +1,7 @@
 
-import { app, protocol, BrowserWindow } from 'electron';
+import {
+  app, protocol, BrowserWindow, ipcMain,
+} from 'electron';
 import {
   createProtocol,
   /* installVueDevtools */
@@ -22,6 +24,8 @@ function createWindow() {
     webPreferences: {
       nodeIntegration: true,
     },
+    title: 'VUE代码前端生产自动化工具 作者chendm',
+    frame: false,
   });
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {
@@ -66,6 +70,7 @@ app.on('ready', async () => {
     // See https://github.com/nklayman/vue-cli-plugin-electron-builder/issues/378 for more info
     // Electron will not launch with Devtools extensions installed on Windows 10 with dark mode
     // If you are not using Windows 10 dark mode, you may uncomment these lines
+    // eslint-disable-next-line max-len
     // In addition, if the linked issue is closed, you can upgrade electron and uncomment these lines
     // try {
     //   await installVueDevtools()
@@ -75,6 +80,22 @@ app.on('ready', async () => {
 
   }
   createWindow();
+  // 监听渲染端事件
+  ipcMain.addListener('window-min', () => {
+    win.minimize();
+  });
+
+  ipcMain.addListener('window-max', () => {
+    if (win.isMaximized()) {
+      win.restore();
+    } else {
+      win.maximize();
+    }
+  });
+
+  ipcMain.addListener('window-close', () => {
+    win.close();
+  });
 });
 
 // Exit cleanly on request from parent process in development mode.

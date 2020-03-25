@@ -1,0 +1,38 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<!--
+2013-9-30: Created.
+-->
+<svg>
+<metadata>
+Created by iconfont
+</metadata>
+<defs>
+
+<font id="iconfont" horiz-adv-x="1024" >
+  <font-face
+    font-family="iconfont"
+    font-weight="500"
+    font-stretch="normal"
+    units-per-em="1024"
+    ascent="896"
+    descent="-128"
+  />
+    <missing-glyph />
+    
+    <glyph glyph-name="zuidahua" unicode="&#58923;" d="M128.576377 0.579447 128.576377 767.421576l766.846222 0 0-766.842129L128.576377 0.579447zM799.567461 671.565415 224.432539 671.565415l0-575.134923 575.134923 0L799.567461 671.565415z"  horiz-adv-x="1024" />
+
+    
+    <glyph glyph-name="zuixiaohua" unicode="&#58908;" d="M928.2 348h-832c-17.7 0-32 14.3-32 32s14.3 32 32 32h832c17.7 0 32-14.3 32-32s-14.3-32-32-32z"  horiz-adv-x="1024" />
+
+    
+    <glyph glyph-name="zuidahua1" unicode="&#58963;" d="M959.72 896H294.216a63.96 63.96 0 0 1-63.96-63.96v-127.92H64.28A63.96 63.96 0 0 1 0.32 640.16V-63.4a63.96 63.96 0 0 1 63.96-63.96h703.56a63.96 63.96 0 0 1 63.96 63.96V103.535h127.92a63.96 63.96 0 0 1 63.96 63.96V832.04A63.96 63.96 0 0 1 959.72 896zM767.84 167.495V-63.4H64.28V640.16h703.56z m189.322 0H831.8V640.16a63.96 63.96 0 0 1-63.96 63.96H294.216V832.04H959.72z"  horiz-adv-x="1024" />
+
+    
+    <glyph glyph-name="guanbi" unicode="&#58967;" d="M562.91 384l386.54 386.54a36 36 0 0 1-50.91 50.92L512 434.91 125.46 821.46a36 36 0 1 1-50.91-50.92L461.09 384 74.54-2.54a36 36 0 1 1 50.92-50.91L512 333.09l386.54-386.54a36 36 0 0 1 50.92 50.91z"  horiz-adv-x="1024" />
+
+    
+
+
+  </font>
+</defs></svg>
