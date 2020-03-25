@@ -1,24 +1,15 @@
-# engine
+# 前端迅捷开发 桌面展示端
 
-## Project setup
+## 开启
 ```
-yarn install
-```
-
-### Compiles and hot-reloads for development
-```
-yarn serve
+npm electron:serve
 ```
 
-### Compiles and minifies for production
+## 打包可执行文件
 ```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
+electron:build
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## END
+
+have fun
