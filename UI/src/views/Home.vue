@@ -1,9 +1,9 @@
 <template>
   <div>
     <el-button @click="visible = true">点击</el-button>
-    <c-table :data="data"
+   <!-- <c-table :data="data"
       :columns="columns"
-      :Pagination="{layout:'prev, pager, next', total: 50}"/>
+      :Pagination="{layout:'prev, pager, next', total: 50}"/> -->
     <c-popup
       :visible.sync="visible"
       title="标题说是说"
@@ -26,12 +26,9 @@
 </template>
 
 <script>
-// import popup from '@/components/base/CPopup';
-// import CForm from '@/components/CForm';
-// import CTable from '@/components/CTable';
-
-import { CPopup, CForm, CTable } from 'integration-element-ui';
-
+import CPopup from '@/components/base/CPopup.vue';
+import CForm from '@/components/CForm.vue';
+import CTable from '@/components/CTable';
 
 export default {
   // components: { popup, CForm, CTable },
