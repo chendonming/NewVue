@@ -1,0 +1,38 @@
+[
+  {
+    "name": "input",
+    "desc": "Input输入框",
+    "props": {
+      "label": {
+        "type": "string",
+        "default": "",
+        "desc": "label值"
+      },
+      "placeholder": {
+        "type": "string",
+        "default": "",
+        "desc": "占位说明"
+      },
+      "clearable": {
+        "type": "bool",
+        "default": false,
+        "desc": "是否可清除"
+      },
+      "show-password": {
+        "type": "bool",
+        "default": false,
+        "desc": "是否是密码框"
+      },
+      "size": {
+        "type": "['large', 'small', 'mini', '']",
+        "default": "",
+        "desc": "指定大小"
+      },
+      "value": {
+        "type": "string",
+        "default": "",
+        "desc": "最终的值"
+      }
+    }
+  }
+]
