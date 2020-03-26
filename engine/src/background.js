@@ -6,6 +6,7 @@ import {
   createProtocol,
   /* installVueDevtools */
 } from 'vue-cli-plugin-electron-builder/lib';
+import fs from 'fs';
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
@@ -31,7 +32,7 @@ function createWindow() {
   if (process.env.WEBPACK_DEV_SERVER_URL) {
     // Load the url of the dev server if in development mode
     win.loadURL(process.env.WEBPACK_DEV_SERVER_URL);
-    if (!process.env.IS_TEST) win.webContents.openDevTools();
+    // if (!process.env.IS_TEST) win.webContents.openDevTools();
   } else {
     createProtocol('app');
     // Load the index.html when not in development
@@ -81,11 +82,11 @@ app.on('ready', async () => {
   }
   createWindow();
   // 监听渲染端事件
-  ipcMain.addListener('window-min', () => {
+  ipcMain.on('window-min', () => {
     win.minimize();
   });
 
-  ipcMain.addListener('window-max', () => {
+  ipcMain.on('window-max', () => {
     if (win.isMaximized()) {
       win.restore();
     } else {
@@ -93,8 +94,19 @@ app.on('ready', async () => {
     }
   });
 
-  ipcMain.addListener('window-close', () => {
+  ipcMain.on('window-close', () => {
     win.close();
+  });
+
+  // 查询文件内容
+  ipcMain.on('query-component', (event) => {
+    fs.readFile('public/config/json/component.json', { encoding: 'UTF-8' }, (err, data) => {
+      if (!err) {
+        event.reply('query-component-reply', JSON.parse(data));
+      } else {
+        event.reply('query-component-reply', err.message);
+      }
+    });
   });
 });
 

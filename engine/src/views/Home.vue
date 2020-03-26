@@ -1,8 +1,12 @@
 <template>
   <div class="home">
-    <component-select />
-    <component-wrapper />
-    <component-attribute />
+    <div class="tool">
+      <el-button>预览</el-button>
+      <el-button>生成</el-button>
+    </div>
+    <component-select/>
+    <component-wrapper/>
+    <component-attribute/>
   </div>
 </template>
 
@@ -29,3 +33,15 @@ export default {
   },
 };
 </script>
+
+<style lang="less" scoped>
+  .tool {
+    position        : absolute;
+    top             : 36px;
+    height          : 64px;
+    display         : flex;
+    align-items     : center;
+    justify-content : center;
+    width           : 100%;
+  }
+</style>
