@@ -2,6 +2,7 @@
   {
     "name": "input",
     "desc": "Input输入框",
+    "component": "el-input",
     "props": {
       "label": {
         "type": "string",
