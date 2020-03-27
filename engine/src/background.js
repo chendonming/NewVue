@@ -1,12 +1,12 @@
 
 import {
-  app, protocol, BrowserWindow, ipcMain,
+  app, protocol, BrowserWindow,
 } from 'electron';
 import {
   createProtocol,
   /* installVueDevtools */
 } from 'vue-cli-plugin-electron-builder/lib';
-import fs from 'fs';
+import api from './api';
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
@@ -81,33 +81,7 @@ app.on('ready', async () => {
 
   }
   createWindow();
-  // 监听渲染端事件
-  ipcMain.on('window-min', () => {
-    win.minimize();
-  });
-
-  ipcMain.on('window-max', () => {
-    if (win.isMaximized()) {
-      win.restore();
-    } else {
-      win.maximize();
-    }
-  });
-
-  ipcMain.on('window-close', () => {
-    win.close();
-  });
-
-  // 查询文件内容
-  ipcMain.on('query-component', (event) => {
-    fs.readFile('public/config/json/component.json', { encoding: 'UTF-8' }, (err, data) => {
-      if (!err) {
-        event.reply('query-component-reply', JSON.parse(data));
-      } else {
-        event.reply('query-component-reply', err.message);
-      }
-    });
-  });
+  api(win);
 });
 
 // Exit cleanly on request from parent process in development mode.
