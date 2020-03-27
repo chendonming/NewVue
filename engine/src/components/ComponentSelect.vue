@@ -21,10 +21,13 @@ export default {
     };
   },
   created() {
-    // 读取文件信息
     ipcRenderer.send('query-component');
     ipcRenderer.on('query-component-reply', (event, json) => {
       if (this.isArray(json)) {
+        /**
+         * 从源文件分离出两份配置： 1 份只是数据 类似 { value: '', clearable: true },
+         * 另一份则是配置属性{ clearable: { default: '', 'desc': '是否允许清除' } }
+         */
         this.componentJson = json;
       }
     });

@@ -3,6 +3,12 @@
     "name": "input",
     "desc": "Input输入框",
     "component": "el-input",
+    "@": [
+      {
+        "name": "input",
+        "desc": "Input事件"
+      }
+    ],
     "props": {
       "label": {
         "type": "string",
