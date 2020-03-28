@@ -22,12 +22,12 @@
       },
       "clearable": {
         "type": "bool",
-        "default": false,
+        "default": true,
         "desc": "是否可清除"
       },
       "show-password": {
         "type": "bool",
-        "default": false,
+        "default": true,
         "desc": "是否是密码框"
       },
       "size": {
@@ -41,8 +41,5 @@
         "desc": "最终的值"
       }
     }
-  },
-  {
-    "desc": "test"
   }
 ]

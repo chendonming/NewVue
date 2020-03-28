@@ -2,7 +2,8 @@
   <div class="wrapper">
     <draggable :list="list" group="component" @change="log">
       <component v-for="(item,index) in list"
-                 :key="index" :is="item.component" v-bind="handleProps(item.props)"></component>
+                 :key="index" :is="item.component"
+                 v-model="item.prop.value" v-bind="item.prop"></component>
     </draggable>
   </div>
 </template>
@@ -12,6 +13,7 @@
    * 组件盛放容器
    */
 import draggable from 'vuedraggable';
+import { mapMutations } from 'vuex';
 
 export default {
   name: 'ComponentWrapper',
@@ -25,16 +27,10 @@ export default {
   },
   methods: {
     log(e) {
-      console.log(e);
+      console.log(this.list);
+      this.setattribute(e.added.element.props);
     },
-    handleProps(props) {
-      const newObj = {};
-      // eslint-disable-next-line no-restricted-syntax
-      for (const [key, value] of Object.entries(props)) {
-        newObj[key] = value.default;
-      }
-      return newObj;
-    },
+    ...mapMutations(['setattribute']),
   },
 };
 </script>
@@ -51,6 +47,7 @@ export default {
     border: 1px solid #4cb6ee;
     > div:nth-child(1) {
       height: 100%;
+      padding: 10px;
     }
   }
 </style>
