@@ -31,14 +31,44 @@
         "desc": "是否是密码框"
       },
       "size": {
-        "type": "['large', 'small', 'mini', '']",
+        "type": "arrayOfType",
         "default": "",
-        "desc": "指定大小"
+        "desc": "指定大小",
+        "list": [
+          {
+            "label": "迷你",
+            "value": "mini"
+          },
+          {
+            "label": "中",
+            "value": "medium"
+          },
+          {
+            "label": "小",
+            "value": "small"
+          }
+        ]
       },
       "value": {
         "type": "string",
         "default": "",
         "desc": "最终的值"
+      }
+    }
+  },
+  {
+    "name": "select",
+    "desc": "Select选择框",
+    "component": "el-select",
+    "props": {
+
+    },
+    "children": {
+      "name": "option",
+      "component": "el-option",
+      "desc": "Option",
+      "props": {
+        
       }
     }
   }

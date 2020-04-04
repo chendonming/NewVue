@@ -4,8 +4,10 @@ import {
 } from 'electron';
 import {
   createProtocol,
-  /* installVueDevtools */
+  // installVueDevtools,
 } from 'vue-cli-plugin-electron-builder/lib';
+import path from 'path';
+import os from 'os';
 import api from './api';
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
@@ -20,8 +22,8 @@ protocol.registerSchemesAsPrivileged([{ scheme: 'app', privileges: { secure: tru
 function createWindow() {
   // Create the browser window.
   win = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1000,
+    height: 900,
     webPreferences: {
       nodeIntegration: true,
     },
@@ -32,7 +34,7 @@ function createWindow() {
   if (process.env.WEBPACK_DEV_SERVER_URL) {
     // Load the url of the dev server if in development mode
     win.loadURL(process.env.WEBPACK_DEV_SERVER_URL);
-    // if (!process.env.IS_TEST) win.webContents.openDevTools();
+    if (!process.env.IS_TEST) win.webContents.openDevTools();
   } else {
     createProtocol('app');
     // Load the index.html when not in development
@@ -74,11 +76,13 @@ app.on('ready', async () => {
     // eslint-disable-next-line max-len
     // In addition, if the linked issue is closed, you can upgrade electron and uncomment these lines
     // try {
-    //   await installVueDevtools()
+    //   await installVueDevtools();
     // } catch (e) {
-    //   console.error('Vue Devtools failed to install:', e.toString())
+    //   console.error('Vue Devtools failed to install:', e.toString());
     // }
-
+    BrowserWindow.addDevToolsExtension(
+      path.join(os.homedir(), '/AppData/Local/Google/Chrome/User Data/Default/Extensions/nhdogjmejiglipccpnnnanhbledajbpd/5.3.3_0'),
+    );
   }
   createWindow();
   api(win);

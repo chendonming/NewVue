@@ -1,9 +1,11 @@
 <template>
   <div class="wrapper">
     <draggable :list="list" group="component" @change="log">
-      <component v-for="(item,index) in list"
+      <component v-for="(item,index) in getList"
                  :key="index" :is="item.component"
-                 v-model="item.prop.value" v-bind="item.prop"></component>
+                 :value="item.prop.value" @input="handleInput(index, $event)"
+                 v-bind="item.prop">
+      </component>
     </draggable>
   </div>
 </template>
@@ -13,7 +15,7 @@
    * 组件盛放容器
    */
 import draggable from 'vuedraggable';
-import { mapMutations } from 'vuex';
+import { mapMutations, mapGetters } from 'vuex';
 
 export default {
   name: 'ComponentWrapper',
@@ -25,12 +27,23 @@ export default {
       list: [],
     };
   },
+  computed: {
+    ...mapGetters(['getList']),
+  },
   methods: {
     log(e) {
-      console.log(this.list);
-      this.setattribute(e.added.element.props);
+      // 指定操作对象下标
+      this.setIndex(e.added.newIndex);
+      this.setattribute(e.added.element.props); // 赋值给右侧的属性列表
+      this.setAllList(this.list); // 赋值列表
     },
-    ...mapMutations(['setattribute']),
+    handleInput(index, e) {
+      this.setList({
+        index,
+        info: e,
+      });
+    },
+    ...mapMutations(['setattribute', 'setAllList', 'setList', 'setIndex']),
   },
 };
 </script>
@@ -45,6 +58,7 @@ export default {
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
     border-radius: 4px;
     border: 1px solid #4cb6ee;
+
     > div:nth-child(1) {
       height: 100%;
       padding: 10px;
