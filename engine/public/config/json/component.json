@@ -57,19 +57,19 @@
     }
   },
   {
-    "name": "select",
+    "name": "c-select",
     "desc": "Select选择框",
-    "component": "el-select",
+    "component": "c-select",
     "props": {
-      "keyLabel": {
-        "type": "string",
-        "default": "",
-        "desc": "option label"
-      },
-      "keyValue": {
-        "type": "string",
-        "default": "",
-        "desc": "option value"
+      "list": {
+        "type": "dynamicArray",
+        "default": [
+          {
+            "label": "test",
+            "value": "test"
+          }
+        ],
+        "desc": "options"
       },
       "value": {
         "type": "string",

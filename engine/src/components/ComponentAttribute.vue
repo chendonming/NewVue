@@ -21,6 +21,15 @@
                              :value="item.value"></el-option>
                 </el-select>
               </template>
+              <!--动态数组-->
+              <template v-else-if="item.type === 'dynamicArray'">
+                <ul>
+                  <li v-for="(item, index) in item.default" :key="index">
+                    label: {{item.label}} value: {{item.value}}
+                  </li>
+                </ul>
+                <el-button size="mini">添加</el-button>
+              </template>
             </el-form-item>
           </template>
         </div>

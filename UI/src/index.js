@@ -1,3 +1,14 @@
-export { default as CPopup } from './components/base/CPopup';
-export { default as CForm } from './components/CForm';
-export { default as CTable } from './components/CTable';
+import CPopup from './components/base/CPopup';
+import CForm from './components/CForm';
+import CTable from './components/CTable';
+
+const components = {
+  install(vue) {
+    vue.component('CPopup', CPopup);
+    vue.component('CForm', CForm);
+    vue.component('CTable', CTable);
+  },
+};
+
+
+export default components;

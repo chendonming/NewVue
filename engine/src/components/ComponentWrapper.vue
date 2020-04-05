@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <draggable :list="list" group="component" @change="log">
+    <draggable :list="wrapperlist" group="component" @change="log">
       <component v-for="(item,index) in getList"
                  :key="index" :is="item.component"
                  :value="item.prop.value" @input="handleInput(index, $event)"
@@ -24,7 +24,7 @@ export default {
   },
   data() {
     return {
-      list: [],
+      wrapperlist: [],
     };
   },
   computed: {
@@ -35,7 +35,7 @@ export default {
       // 指定操作对象下标
       this.setIndex(e.added.newIndex);
       this.setattribute(e.added.element.props); // 赋值给右侧的属性列表
-      this.setAllList(this.list); // 赋值列表
+      this.setAllList(this.wrapperlist); // 赋值列表
     },
     handleInput(index, e) {
       this.setList({
