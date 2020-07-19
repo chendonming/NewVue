@@ -4432,18 +4432,6 @@ inquirer@^7.0.0:
     strip-ansi "^6.0.0"
     through "^2.3.6"
 
-integration-element-ui@0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/integration-element-ui/-/integration-element-ui-0.1.1.tgz#9bb7fee3ba0dc967a26df18f1b34d58946b1751e"
-  integrity sha512-J5JogtYS75rRrAa7sbzspV4h9gFvX/P7Bi1F1wV4nuQZmHA6IjwIu2DEAfaqp3rr1qoAobqFBBcndzw6P7K88Q==
-  dependencies:
-    babel-plugin-component "^1.1.1"
-    core-js "^3.6.4"
-    element-ui "^2.13.0"
-    vue "^2.6.11"
-    vue-i18n "^8.15.5"
-    vue-router "^3.1.5"
-
 internal-ip@^4.3.0:
   version "4.3.0"
   resolved "https://registry.npm.taobao.org/internal-ip/download/internal-ip-4.3.0.tgz#845452baad9d2ca3b69c635a137acb9a0dad0907"
@@ -5102,9 +5090,9 @@ lodash.uniq@^4.5.0:
   integrity sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=
 
 lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.2.0:
-  version "4.17.15"
-  resolved "https://registry.npm.taobao.org/lodash/download/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
-  integrity sha1-tEf2ZwoEVbv+7dETku/zMOoJdUg=
+  version "4.17.19"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.19.tgz#e48ddedbe30b3321783c5b4301fbd353bc1e4a4b"
+  integrity sha512-JNvd8XER9GQX0v2qJgsaN/mzFCNA5BRe/j8JN9d+tWyGLSodKQHKFicdwNYzWwI3wjRnaKPsGj1XkBjx/F96DQ==
 
 log-symbols@^2.2.0:
   version "2.2.0"
