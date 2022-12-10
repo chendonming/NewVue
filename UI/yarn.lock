@@ -4432,18 +4432,6 @@ inquirer@^7.0.0:
     strip-ansi "^6.0.0"
     through "^2.3.6"
 
-integration-element-ui@0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/integration-element-ui/-/integration-element-ui-0.1.1.tgz#9bb7fee3ba0dc967a26df18f1b34d58946b1751e"
-  integrity sha512-J5JogtYS75rRrAa7sbzspV4h9gFvX/P7Bi1F1wV4nuQZmHA6IjwIu2DEAfaqp3rr1qoAobqFBBcndzw6P7K88Q==
-  dependencies:
-    babel-plugin-component "^1.1.1"
-    core-js "^3.6.4"
-    element-ui "^2.13.0"
-    vue "^2.6.11"
-    vue-i18n "^8.15.5"
-    vue-router "^3.1.5"
-
 internal-ip@^4.3.0:
   version "4.3.0"
   resolved "https://registry.npm.taobao.org/internal-ip/download/internal-ip-4.3.0.tgz#845452baad9d2ca3b69c635a137acb9a0dad0907"
@@ -6671,9 +6659,9 @@ qs@6.7.0:
   integrity sha1-QdwaAV49WB8WIXdr4xr7KHapsbw=
 
 qs@~6.5.2:
-  version "6.5.2"
-  resolved "https://registry.npm.taobao.org/qs/download/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
-  integrity sha1-yzroBuh0BERYTvFUzo7pjUA/PjY=
+  version "6.5.3"
+  resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.3.tgz#3aeeffc91967ef6e35c0e488ef46fb296ab76aad"
+  integrity sha512-qxXIEh4pCGfHICj1mAJQ2/2XVZkjCDTcEgfoSQxc/fYivUZxTkk7L3bDBJSoNrEzXI17oUO5Dp07ktqE5KzczA==
 
 query-string@^4.1.0:
   version "4.3.4"
